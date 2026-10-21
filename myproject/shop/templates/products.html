@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motorcycle Parts</title>
+</head>
+
+<body>
+
+    <h1>Motorcycle Parts</h1>
+
+    {% for product in products %}
+
+        <div>
+            
+            {% if product.image %}
+                <img src="{{ product.image.url }}"
+                     alt="{{ product.name }}"
+                     width="250">
+            {% endif %}
+
+            <h2>{{ product.name }}</h2>
+
+            <p>{{ product.description }}</p>
+
+            <p>Price: {{ product.price }} THB</p>
+
+            <p>Stock: {{ product.stock }}</p>
+
+        </div>
+
+        <hr>
+
+    {% empty %}
+
+        <p>No products available.</p>
+
+    {% endfor %}
+
+</body>
+</html>
